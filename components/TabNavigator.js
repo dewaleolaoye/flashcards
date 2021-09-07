@@ -1,11 +1,12 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { HomeScreen, NewDeckScreen } from '../screens';
+import HomeScreen from '../screens/HomeScreen';
+import NewDeckScreen from '../screens/NewDeckScreen';
+
+const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
-  const Tab = createBottomTabNavigator();
-
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
