@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import HomeScreen from '../screens/HomeScreen';
+import DeckListScreen from '../screens/DeckListScreen';
 import NewDeckScreen from '../screens/NewDeckScreen';
 
 const Tab = createBottomTabNavigator();
@@ -25,7 +25,8 @@ const TabNavigator = () => {
         tabBarInactiveTintColor: '#272727',
       })}
     >
-      <Tab.Screen name='Home' component={HomeScreen} />
+      <Tab.Screen name='Home' component={DeckListScreen} />
+
       <Tab.Screen
         name='NewDeck'
         component={NewDeckScreen}
