@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   card: {
     borderRadius: 5,
     padding: 24,
-    backgroundColor: '#C0AAE5',
+    backgroundColor: '#7047EA',
     marginBottom: 16,
   },
 
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
 
   desc: {
-    color: '#272727',
+    color: '#efefef',
     textAlign: 'center',
     fontSize: 16,
   },
