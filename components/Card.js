@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const Card = ({ title, description, onPress }) => {
+const Card = ({ title, cardCount, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.card}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.desc}>{description}</Text>
+        <Text style={styles.desc}>{cardCount} cards</Text>
       </View>
     </TouchableOpacity>
   );

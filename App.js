@@ -5,6 +5,7 @@ import DeckScreen from './screens/DeckScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import HomeScreen from './screens/HomeScreen';
+import AddCardScreen from './screens/AddCardScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,12 @@ export default function App() {
               name='DeckScreen'
               component={DeckScreen}
               options={{ headerShown: true, title: 'Deck' }}
+            />
+
+            <Stack.Screen
+              name='AddCardScreen'
+              component={AddCardScreen}
+              options={{ headerShown: true, title: 'Add Card' }}
             />
           </Stack.Navigator>
         </SafeAreaProvider>
