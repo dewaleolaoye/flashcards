@@ -8,16 +8,19 @@ const data = [
     id: '1',
     title: 'React',
     desc: 'State',
+    cardCount: 2,
   },
   {
     id: '2',
     title: 'Vue',
     desc: "I don't understand",
+    cardCount: 23,
   },
   {
     id: '3',
     title: 'Angular',
     desc: 'What is it',
+    cardCount: 4,
   },
 ];
 
@@ -40,11 +43,11 @@ const DeckList = () => {
           return (
             <Card
               title={item.title}
-              description={item.desc}
+              cardCount={item.cardCount}
               onPress={() =>
                 navigation.navigate('DeckScreen', {
                   title: item.title,
-                  description: item.desc,
+                  cardCount: item.cardCount,
                 })
               }
             />
