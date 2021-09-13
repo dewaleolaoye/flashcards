@@ -1,31 +1,20 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigation } from '@react-navigation/core';
 import { FlatList, View } from 'react-native';
-import Card from '../components/Card';
 
-const data = [
-  {
-    id: '1',
-    title: 'React',
-    desc: 'State',
-    cardCount: 2,
-  },
-  {
-    id: '2',
-    title: 'Vue',
-    desc: "I don't understand",
-    cardCount: 23,
-  },
-  {
-    id: '3',
-    title: 'Angular',
-    desc: 'What is it',
-    cardCount: 4,
-  },
-];
+import Card from '../components/Card';
+import { _DATA } from '../app/api';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllDecks } from '../slices/deckSlice';
 
 const DeckList = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const decks = useSelector((state) => state.decks.allDecks);
+
+  useEffect(() => {
+    dispatch(getAllDecks());
+  }, []);
 
   return (
     <View
@@ -37,23 +26,24 @@ const DeckList = () => {
       }}
     >
       <FlatList
-        data={data}
+        data={Object.values(decks)}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => {
           return (
             <Card
               title={item.title}
-              cardCount={item.cardCount}
+              cardCount={item.questions.length}
               onPress={() =>
                 navigation.navigate('DeckScreen', {
                   title: item.title,
-                  cardCount: item.cardCount,
+                  cardCount: item.questions.length,
                 })
               }
             />
           );
         }}
       />
+      {/* <Text>Hello World</Text> */}
     </View>
   );
 };
