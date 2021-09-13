@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,23 +6,59 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { addCardToDeck } from '../slices/deckSlice';
 
-const AddCardScreen = () => {
+const AddCardScreen = ({ navigation, route }) => {
+  const { id } = route.params;
+
+  const [questionAnswer, setQuestionAnswer] = useState({
+    question: '',
+    answer: '',
+  });
+
+  const dispatch = useDispatch();
+
+  const _handleSubmit = async () => {
+    dispatch(addCardToDeck({ id, questionAnswer }));
+
+    setQuestionAnswer({
+      answer: '',
+      question: '',
+    });
+    navigation.navigate('Home');
+  };
+
+  // console.log(state, 'STATE HERE');
+
   return (
     <View style={styles.container}>
       <TextInput
-        // onChangeText={(e) => setText(e)}
+        onChangeText={(e) =>
+          setQuestionAnswer({
+            ...questionAnswer,
+            question: e,
+          })
+        }
         style={styles.input}
         placeholder='Question'
       />
 
       <TextInput
-        // onChangeText={(e) => setText(e)}
+        onChangeText={(e) =>
+          setQuestionAnswer({
+            ...questionAnswer,
+            answer: e,
+          })
+        }
         style={styles.input}
         placeholder='Answer'
       />
 
-      <TouchableOpacity style={[styles.btn, styles.btnAdd]}>
+      <TouchableOpacity
+        style={[styles.btn, styles.btnAdd]}
+        onPress={_handleSubmit}
+      >
         <Text style={[styles.btnText, styles.white]}>Add Card</Text>
       </TouchableOpacity>
     </View>

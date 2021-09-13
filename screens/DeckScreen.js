@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 const DeckScreen = ({ route, navigation }) => {
-  const { title, cardCount } = route.params;
+  const { title, id, cardCount } = route.params;
 
   return (
     <View style={styles.container}>
@@ -12,7 +12,11 @@ const DeckScreen = ({ route, navigation }) => {
       <View style={styles.btnWrapper}>
         <TouchableOpacity
           style={[styles.btn, styles.btnAdd]}
-          onPress={() => navigation.navigate('AddCardScreen')}
+          onPress={() =>
+            navigation.navigate('AddCardScreen', {
+              id,
+            })
+          }
         >
           <Text style={[styles.btnText, styles.white]}>Add Card</Text>
         </TouchableOpacity>

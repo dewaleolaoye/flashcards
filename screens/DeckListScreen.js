@@ -12,9 +12,13 @@ const DeckList = () => {
   const dispatch = useDispatch();
   const decks = useSelector((state) => state.decks.allDecks);
 
+  console.log(decks, 'current state');
+
   useEffect(() => {
     dispatch(getAllDecks());
   }, []);
+
+  // console.log(decks['z4Y0JExsPv8FT6W7lznp'].questions, 'home');
 
   return (
     <View
@@ -36,6 +40,7 @@ const DeckList = () => {
               onPress={() =>
                 navigation.navigate('DeckScreen', {
                   title: item.title,
+                  id: item.id,
                   cardCount: item.questions.length,
                 })
               }

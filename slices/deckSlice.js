@@ -26,7 +26,15 @@ export const saveDeck = createAsyncThunk('decks/saveDeck', async (title) => {
 const deckSlice = createSlice({
   name: 'decks',
   initialState,
-  reducers: {},
+
+  reducers: {
+    addCardToDeck: (state, action) => {
+      const { id, questionAnswer } = action.payload;
+
+      state.allDecks[id].questions.push(questionAnswer);
+    },
+  },
+
   extraReducers: (builder) => {
     builder.addCase(getAllDecks.fulfilled, (state, action) => {
       const decks = action.payload;
@@ -44,5 +52,5 @@ const deckSlice = createSlice({
   },
 });
 
-export const {} = deckSlice.actions;
+export const { addCardToDeck } = deckSlice.actions;
 export default deckSlice.reducer;
