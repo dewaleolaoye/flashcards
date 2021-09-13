@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/core';
 import { FlatList, View } from 'react-native';
 
@@ -12,13 +12,9 @@ const DeckList = () => {
   const dispatch = useDispatch();
   const decks = useSelector((state) => state.decks.allDecks);
 
-  console.log(decks, 'current state');
-
   useEffect(() => {
     dispatch(getAllDecks());
   }, []);
-
-  // console.log(decks['z4Y0JExsPv8FT6W7lznp'].questions, 'home');
 
   return (
     <View
@@ -48,7 +44,6 @@ const DeckList = () => {
           );
         }}
       />
-      {/* <Text>Hello World</Text> */}
     </View>
   );
 };

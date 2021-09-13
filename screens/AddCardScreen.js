@@ -31,6 +31,10 @@ const AddCardScreen = ({ navigation, route }) => {
 
   // console.log(state, 'STATE HERE');
 
+  const checkLength =
+    questionAnswer.answer.length === 0 || questionAnswer.question.length === 0
+      ? true
+      : false;
   return (
     <View style={styles.container}>
       <TextInput
@@ -56,8 +60,13 @@ const AddCardScreen = ({ navigation, route }) => {
       />
 
       <TouchableOpacity
-        style={[styles.btn, styles.btnAdd]}
+        style={[
+          styles.btn,
+          styles.btnAdd,
+          { backgroundColor: checkLength ? '#cac6c6' : '#7047EA' },
+        ]}
         onPress={_handleSubmit}
+        disabled={checkLength}
       >
         <Text style={[styles.btnText, styles.white]}>Add Card</Text>
       </TouchableOpacity>
@@ -88,7 +97,6 @@ const styles = StyleSheet.create({
     height: 56,
     padding: 16,
     borderRadius: 8,
-    backgroundColor: '#7047EA',
   },
 
   btn: {

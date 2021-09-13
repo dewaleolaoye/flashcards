@@ -21,7 +21,14 @@ const DeckScreen = ({ route, navigation }) => {
           <Text style={[styles.btnText, styles.white]}>Add Card</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.btn, styles.btnStart]}>
+        <TouchableOpacity
+          style={[styles.btn, styles.btnStart]}
+          onPress={() =>
+            navigation.navigate('Quiz', {
+              id,
+            })
+          }
+        >
           <Text style={styles.btnText}>Start Quiz</Text>
         </TouchableOpacity>
       </View>

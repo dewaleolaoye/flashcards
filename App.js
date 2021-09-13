@@ -8,6 +8,7 @@ import HomeScreen from './screens/HomeScreen';
 import AddCardScreen from './screens/AddCardScreen';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
+import Quiz from './screens/Quiz';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +35,12 @@ export default function App() {
                 name='AddCardScreen'
                 component={AddCardScreen}
                 options={{ headerShown: true, title: 'Add Card' }}
+              />
+
+              <Stack.Screen
+                name='Quiz'
+                component={Quiz}
+                options={{ headerShown: true, title: 'Quiz' }}
               />
             </Stack.Navigator>
           </SafeAreaProvider>
