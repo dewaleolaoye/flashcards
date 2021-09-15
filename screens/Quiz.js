@@ -10,7 +10,6 @@ const Quiz = ({ route, navigation }) => {
   const [flip, setFlip] = useState(true);
   const [index, setIndex] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState(0);
-  const [incorrectAnswers, setIncorrectAnswers] = useState(0);
 
   const _handleFlip = () => {
     setFlip(!flip);
@@ -25,12 +24,6 @@ const Quiz = ({ route, navigation }) => {
   const _handleCorrectAnswers = (position) => {
     setIndex(position + 1);
     setCorrectAnswers(correctAnswers + 1);
-  };
-
-  console.log(correctAnswers, 'CORRECT');
-
-  const _handleInCorrectAnswers = (position) => {
-    setIndex(position + 1);
   };
 
   return (
@@ -107,7 +100,7 @@ const Quiz = ({ route, navigation }) => {
                       <TouchableOpacity>
                         <Text
                           style={[styles.answer, styles.incorrect]}
-                          onPress={() => _handleInCorrectAnswers(i)}
+                          onPress={() => setIndex(index + 1)}
                         >
                           Incorrect
                         </Text>
