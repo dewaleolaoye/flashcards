@@ -26,6 +26,8 @@ const DeckScreen = ({ route, navigation }) => {
           onPress={() =>
             navigation.navigate('Quiz', {
               id,
+              title,
+              cardCount,
             })
           }
         >
