@@ -45,11 +45,7 @@ export const _getDecks = async () => {
   }
 };
 
-export const _saveDeckTitle = async (title) => {
-  const id = nanoid();
-  return {
-    id,
-    title,
-    questions: [],
-  };
+export const _saveDeckTitle = async (deck) => {
+  // const id = nanoid();
+  return deck;
 };

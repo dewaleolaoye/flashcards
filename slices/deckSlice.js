@@ -16,7 +16,7 @@ export const getAllDecks = createAsyncThunk('decks/getAllDecks', async () => {
 
 export const saveDeck = createAsyncThunk('decks/saveDeck', async (title) => {
   try {
-    const deck = await _saveDeckTitle(title);
+    const deck = await _saveDeckTitle({ ...title });
     return deck;
   } catch (error) {
     console.warn(error, 'Saving deck');
