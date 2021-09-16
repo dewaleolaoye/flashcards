@@ -7,3 +7,11 @@ It allows users to study collections of flashcards. The app will allow users to 
 - Install every necessary package with `yarn install`
 - Run `yarn start`
 - and use `expo` to test the app
+
+## Platforms
+
+The app was tested on Samsung Galaxy A10
+
+## Author
+
+[dewaleolaoye](https://github.com/dewaleolaoye)
