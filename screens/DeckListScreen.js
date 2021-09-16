@@ -17,39 +17,16 @@ const DeckList = () => {
   const dispatch = useDispatch();
   const decks = useSelector((state) => state.decks.allDecks);
 
-  const [expoPushToken, setExpoPushToken] = useState('');
-  const [notification, setNotification] = useState(false);
-  const notificationListener = useRef();
-  const responseListener = useRef();
-
   useEffect(() => {
     dispatch(getAllDecks());
-
-    // registerForPushNotificationsAsync().then((token) =>
-    //   setExpoPushToken(token)
-    // );
-
-    // notificationListener.current =
-    //   Notifications.addNotificationReceivedListener((notification) => {
-    //     setNotification(notification);
-    //   });
-
-    // responseListener.current =
-    //   Notifications.addNotificationResponseReceivedListener((response) => {
-    //     console.log(response);
-    //   });
+    // console.log(decks, 'DECKS');
 
     schedulePushNotification().then((res) => {
-      console.log(res, 'here');
+      console.log(res, 'schedulePushNotification');
     });
-
-    // return () => {
-    //   Notifications.removeNotificationSubscription(
-    //     notificationListener.current
-    //   );
-    //   Notifications.removeNotificationSubscription(responseListener.current);
-    // };
   }, []);
+
+  // console.log(decks, 'DECKS');
 
   return (
     <View
@@ -66,6 +43,7 @@ const DeckList = () => {
         renderItem={({ item }) => {
           return (
             <Card
+              key={item.id}
               title={item.title}
               cardCount={item.questions.length}
               onPress={() =>

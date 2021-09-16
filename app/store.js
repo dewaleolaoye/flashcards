@@ -5,7 +5,9 @@ import deckReducer from '../slices/deckSlice';
 export const store = configureStore({
   reducer: {
     decks: deckReducer,
-    // questions: questionReducer,
   },
-  // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+  // middleware: (getDefaultMiddleware) =>
+  //   getDefaultMiddleware({
+  //     serializableCheck: false,
+  //   }),
 });

@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 const DeckScreen = ({ route, navigation }) => {
   const { title, id, cardCount } = route.params;
 
+  console.log(title, id, cardCount, 'ROUTE PARAMS');
+
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{title}</Text>
@@ -15,6 +17,8 @@ const DeckScreen = ({ route, navigation }) => {
           onPress={() =>
             navigation.navigate('AddCardScreen', {
               id,
+              title,
+              cardCount,
             })
           }
         >

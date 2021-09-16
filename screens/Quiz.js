@@ -24,6 +24,7 @@ const Quiz = ({ route, navigation }) => {
   const _handleCorrectAnswers = (position) => {
     setIndex(position + 1);
     setCorrectAnswers(correctAnswers + 1);
+    setFlip(flip);
   };
 
   return (
@@ -146,9 +147,7 @@ const Quiz = ({ route, navigation }) => {
                   </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity
-                  onPress={() => navigation.navigate('HomeScreen')}
-                >
+                <TouchableOpacity onPress={() => navigation.goBack()}>
                   <Text
                     style={[
                       styles.answer,

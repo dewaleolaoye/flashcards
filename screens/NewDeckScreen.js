@@ -1,17 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { saveDeck } from '../slices/deckSlice';
 
 const NewDeck = ({ navigation }) => {
   const [text, setText] = useState('');
+  // const selector = useSelector((state) => state.decks.allDecks);
 
   const dispatch = useDispatch();
 
   const _handleSubmit = async () => {
     dispatch(saveDeck(text));
     setText('');
+    // const id = 'z4S0LMdsPr9gU5Z3ornQ';
     navigation.navigate('Home');
+
+    // navigation.navigate('DeckScreen', {
+    //   id,
+    //   title: text,
+    //   cardCount: 0,
+    // });
   };
 
   const _handleTextChange = (e) => {

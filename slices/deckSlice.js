@@ -10,7 +10,7 @@ export const getAllDecks = createAsyncThunk('decks/getAllDecks', async () => {
     const decks = await _getDecks();
     return decks;
   } catch (error) {
-    console.warn(error);
+    console.warn(error, 'fetching deecks');
   }
 });
 
@@ -19,7 +19,7 @@ export const saveDeck = createAsyncThunk('decks/saveDeck', async (title) => {
     const deck = await _saveDeckTitle(title);
     return deck;
   } catch (error) {
-    console.warn(error);
+    console.warn(error, 'Saving deck');
   }
 });
 
