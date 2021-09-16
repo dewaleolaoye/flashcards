@@ -24,7 +24,6 @@ const Quiz = ({ route, navigation }) => {
   const _handleCorrectAnswers = (position) => {
     setIndex(position + 1);
     setCorrectAnswers(correctAnswers + 1);
-    // setFlip(flip);
     setFlip(true);
   };
 
