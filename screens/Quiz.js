@@ -24,7 +24,8 @@ const Quiz = ({ route, navigation }) => {
   const _handleCorrectAnswers = (position) => {
     setIndex(position + 1);
     setCorrectAnswers(correctAnswers + 1);
-    setFlip(flip);
+    // setFlip(flip);
+    setFlip(true);
   };
 
   return (
@@ -101,7 +102,10 @@ const Quiz = ({ route, navigation }) => {
                       <TouchableOpacity>
                         <Text
                           style={[styles.answer, styles.incorrect]}
-                          onPress={() => setIndex(index + 1)}
+                          onPress={() => {
+                            setIndex(index + 1);
+                            setFlip(true);
+                          }}
                         >
                           Incorrect
                         </Text>
